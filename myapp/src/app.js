@@ -6,7 +6,7 @@ class Hello extends React.Component {
   }
 }
 
-class Pharagraph extends React.Component {
+class Message extends React.Component {
   render() {
     return <p>What a beautiful day!</p>;
   }
@@ -16,7 +16,7 @@ export class RenderApp extends React.Component {
     return (
       <div className="potato">
         <Hello />
-        <Pharagraph />
+        <Message />
       </div>
     );
   }
