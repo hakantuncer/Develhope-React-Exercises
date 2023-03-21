@@ -17,7 +17,7 @@ export class RenderApp extends React.Component {
     return (
       <div className="">
         <Hello />
-        <Welcome name="Adrian" />
+        <Welcome name="Adrian" age="28" />
       </div>
     );
   }
