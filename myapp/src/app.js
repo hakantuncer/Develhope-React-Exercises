@@ -1,4 +1,5 @@
 import React from "react";
+import { Welcome } from "./Welcome";
 
 class Hello extends React.Component {
   render() {
@@ -14,9 +15,9 @@ class Message extends React.Component {
 export class RenderApp extends React.Component {
   render() {
     return (
-      <div className="potato">
+      <div className="">
         <Hello />
-        <Message />
+        <Welcome name="Adrian" />
       </div>
     );
   }
