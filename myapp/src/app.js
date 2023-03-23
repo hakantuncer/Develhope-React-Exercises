@@ -1,6 +1,10 @@
 import React from "react";
 import { Welcome } from "./Welcome";
 
+function Adrian(name) {
+  return <strong>{name}</strong>;
+}
+
 class Hello extends React.Component {
   render() {
     return <h1>Hello, World!</h1>;

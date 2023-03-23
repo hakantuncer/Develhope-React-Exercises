@@ -13,7 +13,4 @@ Welcome.defaultProps = {
   name: "User",
 };
 
-/* If no name prop is passed to the Welcome component,
-   the component will still render, but the message 
-   inside the p tag will just say "Welcome, !", with 
-   no name displayed. */
+/* JSX expression will pass as a normal prop. You can use curly brackets to pass props which contains JSX expression.*/
