@@ -2,7 +2,10 @@ import React from "react";
 
 export class age extends React.Component {
   render() {
-    return <span>Your age is {this.props.age}</span>;
+    const age = this.props.age;
+    return (
+      <span>{age > 18 ? `Your age is ${age}` : "You are very young!"}</span>
+    );
   }
 }
 
@@ -12,8 +15,7 @@ export class Welcome extends React.Component {
     const name = this.props.name;
     return (
       <div>
-        <p> Welcome, {name}!</p>;
-        {age && age > 18 && age < 65 && name === "John" && <age age={age} />}
+        <p> Welcome, {name}!</p>;{age && <age age={age} />}
       </div>
     );
   }
