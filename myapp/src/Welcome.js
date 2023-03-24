@@ -8,10 +8,10 @@ export class age extends React.Component {
 
 export class Welcome extends React.Component {
   render() {
-    const age = this.props.age;
+    const age = props.age;
     return (
       <div>
-        <p> Welcome, {this.props.name}!</p>;{age > 18 && <age age={age} />}
+        <p> Welcome, {this.props.name}!</p>;{age && <age age={age} />}
       </div>
     );
   }
