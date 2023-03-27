@@ -1,5 +1,7 @@
 import React from "react";
 import { Welcome } from "./Welcome";
+import { Clock } from "./Clock";
+import { Counter } from "./Counter";
 
 function Adrian(name) {
   return <strong>{name}</strong>;
@@ -22,6 +24,8 @@ export class RenderApp extends React.Component {
       <div className="">
         <Hello />
         <Welcome name="Adrian" age="28" />
+        <Counter />
+        <Clock />
       </div>
     );
   }
