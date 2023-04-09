@@ -8,19 +8,14 @@ export class Counter extends React.Component {
     count: 0,
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      count: props.start,
-    };
-
+  componentDidMount() {
     setInterval(() => {
       this.setState((state) => {
         return {
           count: state.count + 1,
         };
       });
-    }, 1000);
+    }, this.props.interval);
   }
 
   render() {
@@ -38,3 +33,7 @@ export class Counter extends React.Component {
     );
   }
 }
+
+// ComponentDidMount is already doing constructer's job.
+//So we don't need to use constructer here but if we need
+//for another job we can still use it.
