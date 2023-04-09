@@ -24,7 +24,7 @@ export class RenderApp extends React.Component {
       <div className="">
         <Hello />
         <Welcome name="Adrian" age="28" />
-        <Counter />
+        <Counter start={0} increment={2} />
         <Clock />
       </div>
     );
