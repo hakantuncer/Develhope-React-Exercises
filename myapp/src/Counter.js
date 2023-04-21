@@ -1,6 +1,5 @@
 import React from "react";
 
-import React from "react";
 import { CounterDisplay } from "/CounterDisplay";
 
 export class Counter extends React.Component {
@@ -33,7 +32,3 @@ export class Counter extends React.Component {
     );
   }
 }
-
-// ComponentDidMount is already doing constructer's job.
-//So we don't need to use constructer here but if we need
-//for another job we can still use it.
