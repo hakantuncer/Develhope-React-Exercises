@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 
+function CounterButton(props) {
+  return <button onClick={props.onClick}>{props.text}</button>;
+}
+// we passed with props.
+
 export class ClickCounter extends Component {
   state = {
     count: 0,
@@ -15,7 +20,7 @@ export class ClickCounter extends Component {
     return (
       <div>
         <h2>Counter: {this.state.count}</h2>
-        <button onClick={this.handleClick}>Click Here!</button>
+        <CounterButton onClick={this.handleClick} text="Click Here!" />
       </div>
     );
   }
