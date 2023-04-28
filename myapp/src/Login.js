@@ -8,45 +8,53 @@ export class Login extends Component {
   };
 
   handleInputChange = (event) => {
-    const { name, type, value, checked } = event.target;
-    const newValue = type === "checkbox" ? checked : value;
-    this.setState({ [name]: newValue });
+    const target = event.target;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value,
+    });
   };
 
-  handleSubmit = (event) => {
-    event.preventDefault();
+  handleLogin = () => {
     const { username, password, remember } = this.state;
+    this.props.onLogin({ username, password, remember });
   };
 
   render() {
+    const { username, password, remember } = this.state;
+    const isLoginDisabled = username === "" || password === "";
+
     return (
-      <form onSubmit={this.handleSubmit}>
+      <div>
         <input
           type="text"
-          id="username"
           name="username"
-          value={this.state.username}
+          value={username}
           onChange={this.handleInputChange}
         />
 
         <input
           type="password"
-          id="password"
           name="password"
-          value={this.state.password}
+          value={password}
           onChange={this.handleInputChange}
         />
+
+        <br />
 
         <input
           type="checkbox"
-          id="remember"
           name="remember"
-          checked={this.state.remember}
+          checked={remember}
           onChange={this.handleInputChange}
         />
 
-        <button type="submit">Login</button>
-      </form>
+        <button onClick={this.handleLogin} disabled={isLoginDisabled}>
+          Login
+        </button>
+      </div>
     );
   }
 }
