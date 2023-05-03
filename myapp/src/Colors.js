@@ -7,7 +7,7 @@ export class Colors extends Component {
     return (
       <ul>
         {items.map((color) => (
-          <li key={color}>{color}</li>
+          <li key={color.id}>{color.name}</li>
         ))}
       </ul>
     );
