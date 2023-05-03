@@ -1,67 +1,36 @@
 import React, { Component } from "react";
 
-export class Login extends Component {
-  state = {
-    username: "",
-    password: "",
-    remember: false,
-  };
-
-  handleInputChange = (event) => {
-    const target = event.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
-
-    this.setState({
-      [name]: value,
-    });
-  };
+export class UncontrolledLogin extends Component {
+  usernameRef = React.createRef();
+  passwordRef = React.createRef();
+  rememberRef = React.createRef();
 
   handleLogin = () => {
-    const { username, password, remember } = this.state;
+    const username = this.usernameRef.current.value;
+    const password = this.passwordRef.current.value;
+    const remember = this.rememberRef.current.checked;
+
     this.props.onLogin({ username, password, remember });
   };
 
   handleReset = () => {
-    this.setState({
-      username: "",
-      password: "",
-      remember: false,
-    });
+    this.usernameRef.current.value = "";
+    this.passwordRef.current.value = "";
+    this.rememberRef.current.checked = false;
   };
 
   render() {
-    const { username, password, remember } = this.state;
-    const isLoginDisabled = username === "" || password === "";
-
     return (
       <div>
-        <input
-          type="text"
-          name="username"
-          value={username}
-          onChange={this.handleInputChange}
-        />
+        <input type="text" name="username" ref={this.usernameRef} />
 
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={this.handleInputChange}
-        />
+        <input type="password" name="password" ref={this.passwordRef} />
 
         <br />
 
-        <input
-          type="checkbox"
-          name="remember"
-          checked={remember}
-          onChange={this.handleInputChange}
-        />
+        <input type="checkbox" name="remember" ref={this.rememberRef} />
 
-        <button onClick={this.handleLogin} disabled={isLoginDisabled}>
-          Login
-        </button>
+        <button onClick={this.handleLogin}>Login</button>
 
         <button onClick={this.handleReset}>Reset</button>
       </div>
