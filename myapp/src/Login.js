@@ -22,6 +22,14 @@ export class Login extends Component {
     this.props.onLogin({ username, password, remember });
   };
 
+  handleReset = () => {
+    this.setState({
+      username: "",
+      password: "",
+      remember: false,
+    });
+  };
+
   render() {
     const { username, password, remember } = this.state;
     const isLoginDisabled = username === "" || password === "";
@@ -54,6 +62,8 @@ export class Login extends Component {
         <button onClick={this.handleLogin} disabled={isLoginDisabled}>
           Login
         </button>
+
+        <button onClick={this.handleReset}>Reset</button>
       </div>
     );
   }
