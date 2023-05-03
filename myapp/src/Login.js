@@ -5,6 +5,10 @@ export class UncontrolledLogin extends Component {
   passwordRef = React.createRef();
   rememberRef = React.createRef();
 
+  componentDidMount() {
+    this.usernameRef.current.focus();
+  }
+
   handleLogin = () => {
     const username = this.usernameRef.current.value;
     const password = this.passwordRef.current.value;
