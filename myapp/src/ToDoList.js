@@ -20,6 +20,13 @@ export class TodoList extends Component {
     });
   };
 
+  handleReset = () => {
+    this.setState({
+      items: [],
+      inputValue: "",
+    });
+  };
+
   render() {
     const { items, newItem } = this.state;
 
@@ -34,6 +41,8 @@ export class TodoList extends Component {
         <input type="text" value={newItem} onChange={this.handleInputChange} />
 
         <button onClick={this.handleAddItem}>Add Todo</button>
+
+        <button onClick={this.handleReset}>Reset</button>
       </div>
     );
   }
