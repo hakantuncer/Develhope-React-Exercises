@@ -7,15 +7,17 @@ export class TodoList extends Component {
   };
 
   handleInputChange = (event) => {
-    this.setState({ newItem: event.target.value });
+    this.setState({
+      newItem: event.target.value,
+    });
   };
 
   handleAddItem = () => {
     const { items, newItem } = this.state;
-    if (newItem) {
-      const newItems = [...items, newItem];
-      this.setState({ items: newItems, newItem: "" });
-    }
+    this.setState({
+      items: [...items, newItem],
+      newItem: "",
+    });
   };
 
   render() {
@@ -28,8 +30,10 @@ export class TodoList extends Component {
             <li key={index}>{item}</li>
           ))}
         </ul>
+
         <input type="text" value={newItem} onChange={this.handleInputChange} />
-        <button onClick={this.handleAddItem}>Add Item</button>
+
+        <button onClick={this.handleAddItem}>Add Todo</button>
       </div>
     );
   }
