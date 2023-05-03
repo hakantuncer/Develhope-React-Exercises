@@ -27,6 +27,11 @@ export class TodoList extends Component {
     });
   };
 
+  handleRemoveItem = (index) => {
+    const { items } = this.state;
+    this.setState({ items: items.filter((item, i) => i !== index) });
+  };
+
   render() {
     const { items, newItem } = this.state;
 
@@ -34,7 +39,12 @@ export class TodoList extends Component {
       <div>
         <ul>
           {items.map((item, index) => (
-            <li key={index}>{item}</li>
+            <li key={index}>
+              {item}
+              <button onClick={() => this.handleRemoveItem(index)}>
+                Remove
+              </button>
+            </li>
           ))}
         </ul>
 
