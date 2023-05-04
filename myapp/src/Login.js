@@ -24,6 +24,11 @@ export class UncontrolledLogin extends Component {
   };
 
   render() {
+    const { username, password, remember } = this.state;
+    const isLoginDisabled = username === "" || password === "";
+    const buttonStyle = {
+      backgroundColor: password.length < 8 ? "red" : "green",
+    };
     return (
       <div>
         <input type="text" name="username" ref={this.usernameRef} />
@@ -34,7 +39,13 @@ export class UncontrolledLogin extends Component {
 
         <input type="checkbox" name="remember" ref={this.rememberRef} />
 
-        <button onClick={this.handleLogin}>Login</button>
+        <button
+          onClick={this.handleLogin}
+          style={buttonStyle}
+          disabled={isLoginDisabled}
+        >
+          Login
+        </button>
 
         <button onClick={this.handleReset}>Reset</button>
       </div>
