@@ -30,6 +30,7 @@ export class RenderApp extends React.Component {
         <ClickCounter />
         <ClickTracker />
         <Clock />
+        <Sum />
       </div>
     );
   }
